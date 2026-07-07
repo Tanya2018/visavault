@@ -51,7 +51,7 @@ window.VISA_DATA = {
           source: "https://home-affairs.ec.europa.eu/policies/schengen/visa-policy/applying-schengen-visa_en",
           title: "Schengen Short-Stay Visa (Type C) — Tourism",
           stay: "Up to 90 days within any 180-day period.",
-          fee: "€90 adult / €45 child (6–11) / free under 6, plus VFS or TLScontact service charge (varies).",
+          fee: "Official embassy fee — €90 adult / €45 child (6–11) / free under 6, plus VFS or TLScontact service charge (varies).",
           processing: "15 calendar days standard; up to 45 (occasionally 60) in peak season or complex cases. Apply 6–8 weeks ahead off-peak, 10–12 weeks for May–Sept travel.",
           docs: [
             "East African Community biometric e-passport, valid 3+ months beyond return, issued within last 10 years, 2 blank facing pages.",
@@ -80,7 +80,7 @@ window.VISA_DATA = {
           source: "https://www.gov.pl/web/kenya/c-type-schengen-visa",
           title: "Schengen Short-Stay Visa (Type C) — Business",
           stay: "Up to 90 days within any 180-day period.",
-          fee: "€90 adult, plus service charge.",
+          fee: "Official embassy fee — €90 adult, plus service charge.",
           processing: "15 calendar days standard; up to 45–60 in complex cases.",
           docs: [
             "All standard tourism documents (passport, form, photos, insurance, finances, flights, accommodation).",
@@ -100,7 +100,7 @@ window.VISA_DATA = {
           source: "https://nairobi.diplo.de/ke-en/service/visa-entry/schengen-visa-1671552",
           title: "Schengen Short-Stay Visa (Type C) — Medical",
           stay: "Up to 90 days (longer treatment needs a national long-stay visa).",
-          fee: "€90 adult, plus service charge.",
+          fee: "Official embassy fee — €90 adult, plus service charge.",
           processing: "15–45 calendar days.",
           docs: [
             "All standard documents (passport, form, photos, insurance, finances).",
@@ -128,7 +128,7 @@ window.VISA_DATA = {
           source: "https://www.gov.uk/standard-visitor/apply-standard-visitor-visa",
           title: "Standard Visitor Visa — Tourism / Family",
           stay: "Up to 6 months. Visa itself can be issued for 6 months, 2, 5 or 10 years (multiple entry).",
-          fee: "£115 for 6-month visitor visa (confirm current rate on GOV.UK — it moves). Plus VFS service charge ~KES 5,000–8,000. No Immigration Health Surcharge for visitors.",
+          fee: "Official embassy fee — £115 for 6-month visitor visa (confirm current rate on GOV.UK — it moves). Plus VFS service charge ~KES 5,000–8,000. No Immigration Health Surcharge for visitors.",
           processing: "~3 weeks from biometrics. Priority ~5 working days (~£500 extra); super-priority next working day (~£1,000 extra).",
           docs: [
             "Passport valid for the duration of stay (6 months recommended), bio-data page copy.",
@@ -154,7 +154,7 @@ window.VISA_DATA = {
           source: "https://www.gov.uk/standard-visitor/apply-standard-visitor-visa",
           title: "Standard Visitor Visa — Business",
           stay: "Up to 6 months. No paid work permitted.",
-          fee: "£115 (confirm on GOV.UK) + VFS service charge.",
+          fee: "Official embassy fee — £115 (confirm on GOV.UK) + VFS service charge.",
           processing: "~3 weeks from biometrics; priority options available.",
           docs: [
             "All Standard Visitor documents (passport, form, finances, ties).",
@@ -170,7 +170,7 @@ window.VISA_DATA = {
           source: "https://www.swiftpassimmigration.com/blog/kenya-uk-visa-guide-2026",
           title: "Skilled Worker Visa",
           stay: "Up to 5 years per grant; leads to ILR (settlement) after 5 years.",
-          fee: "Visa fee varies by length + Immigration Health Surcharge (£1,035/year) + you must show maintenance funds (£1,270 for 28 days unless sponsor certifies).",
+          fee: "Official embassy fee — visa fee varies by length + Immigration Health Surcharge (£1,035/year) + you must show maintenance funds (£1,270 for 28 days unless sponsor certifies).",
           processing: "Varies; needs a Certificate of Sponsorship first.",
           docs: [
             "Certificate of Sponsorship (CoS) from a UK-licensed employer.",
@@ -188,7 +188,7 @@ window.VISA_DATA = {
           source: "https://www.gov.uk/standard-visitor/apply-standard-visitor-visa",
           title: "Standard Visitor Visa — Medical Treatment",
           stay: "Up to 6 months on the standard visitor route; up to 11 months on the private-medical extension.",
-          fee: "£115 standard visitor (confirm on GOV.UK); higher for the 11-month medical variant.",
+          fee: "Official embassy fee — £115 standard visitor (confirm on GOV.UK); higher for the 11-month medical variant.",
           processing: "~3 weeks from biometrics.",
           docs: [
             "All Standard Visitor documents.",
@@ -215,7 +215,7 @@ window.VISA_DATA = {
           source: "https://ke.usembassy.gov/visas/",
           title: "B1/B2 Visitor Visa (Tourism / Business / Medical)",
           stay: "Typically issued for up to 10 years, multiple entry; each stay up to 6 months (set by CBP at entry). No work or study.",
-          fee: "$185 MRV fee (~KES 24,000), non-refundable even if refused.",
+          fee: "Official embassy fee — $185 MRV fee (~KES 24,000), non-refundable even if refused.",
           processing: "Interview wait times vary widely (weeks to several months). Start 3+ months ahead in peak season.",
           docs: [
             "Passport valid 6 months beyond intended stay.",
@@ -258,7 +258,7 @@ window.VISA_DATA = {
           source: "https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada.html",
           title: "Visitor Visa (Temporary Resident Visa — TRV)",
           stay: "Usually up to 6 months per entry (officer decides at the border).",
-          fee: "CAD $100 visitor visa + CAD $85 biometrics (confirm current IRCC rates).",
+          fee: "Official embassy fee — cAD $100 visitor visa + CAD $85 biometrics (confirm current IRCC rates).",
           processing: "Roughly 4–8 weeks, but varies significantly — check IRCC live processing times.",
           docs: [
             "Passport valid for the trip.",
