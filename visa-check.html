@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Visa Readiness Check | SAIS Events</title>
+<meta name="description" content="Free 2-minute visa readiness check for East African delegates travelling to CIIE Shanghai, Food Africa Cairo and Gulf expos. Get your score and your gap list.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --jungle-1:#0b2e1f;
+    --jungle-2:#123a28;
+    --jungle-3:#1a4a33;
+    --gold:#d4af5a;
+    --gold-bright:#e8c877;
+    --cream:#f5efe2;
+    --cream-dim:rgba(245,239,226,.68);
+    --red:#e07a5f;
+    --card:rgba(255,255,255,.045);
+    --line:rgba(212,175,90,.28);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Manrope',sans-serif;
+    background:linear-gradient(160deg,var(--jungle-1) 0%,var(--jungle-2) 55%,var(--jungle-3) 100%);
+    min-height:100vh;
+    color:var(--cream);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:680px;margin:0 auto;padding:32px 20px 80px}
+
+  /* Header */
+  .brand{display:flex;align-items:center;justify-content:space-between;margin-bottom:44px}
+  .brand a{color:var(--cream);text-decoration:none;font-weight:800;letter-spacing:.14em;font-size:.85rem;text-transform:uppercase}
+  .brand a span{color:var(--gold)}
+  .brand .tag{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cream-dim)}
+
+  .diamond{display:inline-block;width:7px;height:7px;background:var(--gold);transform:rotate(45deg);margin:0 10px;vertical-align:middle}
+
+  /* Hero */
+  .hero h1{
+    font-family:'Instrument Serif',serif;
+    font-weight:400;
+    font-size:clamp(2.1rem,6vw,3.1rem);
+    line-height:1.12;
+    margin-bottom:16px;
+  }
+  .hero h1 em{font-style:italic;color:var(--gold-bright)}
+  .hero p{color:var(--cream-dim);font-size:1.02rem;line-height:1.65;max-width:54ch}
+  .hero .meta{margin-top:20px;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+
+  .start-btn{
+    margin-top:32px;display:inline-block;
+    background:linear-gradient(120deg,var(--gold),var(--gold-bright));
+    color:var(--jungle-1);font-weight:800;font-size:.95rem;letter-spacing:.04em;
+    padding:16px 34px;border:none;border-radius:4px;cursor:pointer;
+    transition:transform .18s ease, box-shadow .18s ease;
+    box-shadow:0 6px 24px rgba(212,175,90,.25);
+  }
+  .start-btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(212,175,90,.35)}
+  .start-btn:focus-visible{outline:3px solid var(--cream);outline-offset:3px}
+
+  /* Progress */
+  .progress{display:none;margin-bottom:28px}
+  .progress .label{display:flex;justify-content:space-between;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cream-dim);margin-bottom:10px}
+  .progress .bar{height:3px;background:rgba(245,239,226,.12);border-radius:2px;overflow:hidden}
+  .progress .fill{height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--gold-bright));transition:width .35s ease}
+
+  /* Steps */
+  .step{display:none;animation:fadeUp .35s ease}
+  .step.active{display:block}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){
+    .step{animation:none}
+    .start-btn{transition:none}
+  }
+  .step h2{
+    font-family:'Instrument Serif',serif;font-weight:400;
+    font-size:clamp(1.5rem,4.5vw,2rem);line-height:1.2;margin-bottom:8px;
+  }
+  .step .sub{color:var(--cream-dim);font-size:.92rem;margin-bottom:26px;line-height:1.6}
+
+  .opt{
+    display:block;width:100%;text-align:left;
+    background:var(--card);border:1px solid rgba(245,239,226,.14);
+    color:var(--cream);border-radius:6px;
+    padding:16px 18px;margin-bottom:12px;cursor:pointer;
+    font-family:'Manrope',sans-serif;font-size:.95rem;font-weight:600;
+    transition:border-color .15s ease, background .15s ease;
+    position:relative;
+  }
+  .opt:hover{border-color:var(--gold);background:rgba(212,175,90,.07)}
+  .opt:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  .opt.selected{border-color:var(--gold);background:rgba(212,175,90,.12)}
+  .opt.selected::after{content:'';position:absolute;right:18px;top:50%;width:8px;height:8px;background:var(--gold);transform:translateY(-50%) rotate(45deg)}
+  .opt small{display:block;font-weight:400;color:var(--cream-dim);margin-top:3px;font-size:.82rem}
+
+  .nav{display:flex;justify-content:space-between;margin-top:26px;gap:12px}
+  .back-btn{
+    background:none;border:1px solid rgba(245,239,226,.25);color:var(--cream-dim);
+    padding:13px 22px;border-radius:4px;font-family:'Manrope',sans-serif;font-weight:700;font-size:.85rem;cursor:pointer;
+  }
+  .back-btn:hover{border-color:var(--cream);color:var(--cream)}
+  .back-btn:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+  /* Lead form */
+  .lead-form label{display:block;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);margin:18px 0 7px;font-weight:700}
+  .lead-form input{
+    width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(245,239,226,.18);
+    border-radius:5px;padding:14px 16px;color:var(--cream);
+    font-family:'Manrope',sans-serif;font-size:1rem;
+  }
+  .lead-form input:focus{outline:none;border-color:var(--gold)}
+  .lead-form input::placeholder{color:rgba(245,239,226,.35)}
+  .fine{font-size:.75rem;color:var(--cream-dim);margin-top:14px;line-height:1.5}
+
+  /* Results */
+  .score-shell{text-align:center;padding:10px 0 6px}
+  .dial{position:relative;width:210px;height:210px;margin:0 auto 8px}
+  .dial svg{transform:rotate(-90deg)}
+  .dial .num{
+    position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  }
+  .dial .num strong{font-family:'Instrument Serif',serif;font-weight:400;font-size:3.4rem;line-height:1}
+  .dial .num span{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cream-dim);margin-top:6px}
+  .band{font-family:'Instrument Serif',serif;font-size:1.7rem;margin:8px 0 6px}
+  .band-note{color:var(--cream-dim);font-size:.95rem;line-height:1.6;max-width:48ch;margin:0 auto}
+
+  .gaps{margin-top:34px}
+  .gaps h3, .fixes h3{
+    font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;font-weight:800;
+  }
+  .gap-item{
+    display:flex;gap:12px;align-items:flex-start;
+    background:var(--card);border:1px solid rgba(245,239,226,.1);
+    border-left:3px solid var(--red);
+    border-radius:5px;padding:14px 16px;margin-bottom:10px;font-size:.92rem;line-height:1.55;
+  }
+  .gap-item.ok{border-left-color:var(--gold)}
+  .gap-item .mark{flex:0 0 auto;width:7px;height:7px;margin-top:7px;transform:rotate(45deg);background:var(--red)}
+  .gap-item.ok .mark{background:var(--gold)}
+  .gap-item strong{display:block;margin-bottom:2px}
+  .gap-item span{color:var(--cream-dim)}
+
+  /* Offer cards */
+  .offers{margin-top:40px;display:grid;gap:14px}
+  .offer{
+    border:1px solid var(--line);border-radius:8px;padding:22px 20px;background:var(--card);
+  }
+  .offer.featured{background:linear-gradient(135deg,rgba(212,175,90,.14),rgba(212,175,90,.05));border-color:var(--gold)}
+  .offer .kicker{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:800;margin-bottom:8px}
+  .offer h4{font-family:'Instrument Serif',serif;font-weight:400;font-size:1.35rem;margin-bottom:8px}
+  .offer p{color:var(--cream-dim);font-size:.9rem;line-height:1.6;margin-bottom:16px}
+  .offer .price{font-weight:800;color:var(--gold-bright);font-size:1.05rem;margin-bottom:14px}
+  .cta{
+    display:inline-block;text-decoration:none;text-align:center;
+    background:linear-gradient(120deg,var(--gold),var(--gold-bright));
+    color:var(--jungle-1);font-weight:800;font-size:.88rem;
+    padding:13px 26px;border-radius:4px;border:none;cursor:pointer;font-family:'Manrope',sans-serif;
+  }
+  .cta.ghost{background:none;border:1px solid var(--gold);color:var(--gold-bright)}
+  .cta:focus-visible{outline:2px solid var(--cream);outline-offset:2px}
+
+  .disclaimer{margin-top:44px;font-size:.72rem;color:rgba(245,239,226,.42);line-height:1.6;border-top:1px solid rgba(245,239,226,.1);padding-top:18px}
+
+  .hidden{display:none!important}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="brand">
+    <a href="/">SAIS <span>Events</span></a>
+    <div class="tag">Visa Readiness Check</div>
+  </header>
+
+  <!-- ============ INTRO ============ -->
+  <section id="intro">
+    <div class="hero">
+      <h1>Will your visa be ready<br>when the expo doors <em>open?</em></h1>
+      <p>A 2-minute readiness check built for East African delegates travelling to CIIE Shanghai, Food Africa Cairo and Gulf trade expos. Answer 10 questions, get your score out of 100, and see exactly which gaps could delay — or sink — your application.</p>
+      <div class="meta">Free <span class="diamond"></span> 2 minutes <span class="diamond"></span> Instant score</div>
+      <button class="start-btn" onclick="startQuiz()">Check my readiness</button>
+    </div>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <div class="progress" id="progress">
+    <div class="label"><span id="stepLabel">Step 1 of 7</span><span id="stepPct">0%</span></div>
+    <div class="bar"><div class="fill" id="progressFill"></div></div>
+  </div>
+
+  <section class="step" id="step1" data-key="destination">
+    <h2>Where are you headed?</h2>
+    <p class="sub">We tune the check to that embassy's actual requirements.</p>
+    <button class="opt" data-val="china">CIIE Shanghai, China <small>5–10 Nov 2026 · Chinese M business visa</small></button>
+    <button class="opt" data-val="egypt">Food Africa Cairo, Egypt <small>7–10 Dec 2026 · Egyptian business visa</small></button>
+    <button class="opt" data-val="uae">UAE trade expo <small>Dubai / Abu Dhabi · UAE visit visa</small></button>
+    <button class="opt" data-val="other">Another destination <small>We'll run a general business-visa check</small></button>
+  </section>
+
+  <section class="step" id="step2" data-key="passportValidity">
+    <h2>Your passport — is it valid at least 6 months beyond your return date?</h2>
+    <p class="sub">This is the single most common reason applications get bounced at the counter.</p>
+    <button class="opt" data-val="yes">Yes — 6+ months validity, no problem</button>
+    <button class="opt" data-val="close">It's close — under 8 months left</button>
+    <button class="opt" data-val="no">No — it expires soon, or I don't hold a passport yet</button>
+  </section>
+
+  <section class="step" id="step3" data-key="blankPages">
+    <h2>Does it have at least 2 blank visa pages?</h2>
+    <p class="sub">Embassies need physical space for the visa sticker and entry stamps.</p>
+    <button class="opt" data-val="yes">Yes, plenty of blank pages</button>
+    <button class="opt" data-val="no">No / not sure — it's nearly full</button>
+  </section>
+
+  <section class="step" id="step4" data-key="travelHistory">
+    <h2>Your travel history in the last 5 years?</h2>
+    <p class="sub">Prior visas signal you travel and return. Pick the strongest that applies.</p>
+    <button class="opt" data-val="strong">I've held visas for China, Schengen, UK, US or Gulf states</button>
+    <button class="opt" data-val="regional">I've travelled within Africa / visa-free destinations only</button>
+    <button class="opt" data-val="none">This would be my first international trip</button>
+  </section>
+
+  <section class="step" id="step5" data-key="refusals">
+    <h2>Ever had a visa refused or an overstay flagged?</h2>
+    <p class="sub">Be honest here — refusals aren't fatal, but they change how you should apply.</p>
+    <button class="opt" data-val="none">No refusals, no overstays</button>
+    <button class="opt" data-val="refused">Yes — a refusal in the past</button>
+    <button class="opt" data-val="overstay">Yes — an overstay or immigration issue</button>
+  </section>
+
+  <section class="step" id="step6" data-key="business">
+    <h2>Your business standing?</h2>
+    <p class="sub">Business visas hinge on proving you're a genuine trader with reason to return.</p>
+    <button class="opt" data-val="registered2">Registered company, trading 2+ years, docs in order</button>
+    <button class="opt" data-val="registered">Registered company, under 2 years</button>
+    <button class="opt" data-val="employed">I'm employed — attending on behalf of my company</button>
+    <button class="opt" data-val="informal">Informal / unregistered business</button>
+  </section>
+
+  <section class="step" id="step7" data-key="invitation">
+    <h2>Do you have an official invitation letter from the expo organiser?</h2>
+    <p class="sub">For China especially, this is non-negotiable for a business (M) visa.</p>
+    <button class="opt" data-val="yes">Yes, I have one</button>
+    <button class="opt" data-val="process">It's being processed</button>
+    <button class="opt" data-val="no">No — I don't know how to get one</button>
+  </section>
+
+  <section class="step" id="step8" data-key="finances">
+    <h2>Can you show 6 months of bank statements with healthy activity?</h2>
+    <p class="sub">Personal or business account showing you can fund the trip.</p>
+    <button class="opt" data-val="strong">Yes — consistent income and balance that covers the trip comfortably</button>
+    <button class="opt" data-val="thin">Statements exist but the balance is thin or irregular</button>
+    <button class="opt" data-val="no">No — statements would be a problem right now</button>
+  </section>
+
+  <section class="step" id="step9" data-key="timeline">
+    <h2>When do you plan to submit your application?</h2>
+    <p class="sub">Embassy processing from Nairobi typically runs 1–4 weeks — longer in peak season.</p>
+    <button class="opt" data-val="early">8+ weeks before travel</button>
+    <button class="opt" data-val="ok">4–8 weeks before travel</button>
+    <button class="opt" data-val="late">Under 4 weeks before travel</button>
+    <button class="opt" data-val="unsure">Haven't thought about it yet</button>
+  </section>
+
+  <!-- ============ LEAD CAPTURE ============ -->
+  <section class="step" id="stepLead">
+    <h2>Your score is ready.</h2>
+    <p class="sub">Tell us where to send your full gap report and document checklist — then see your score instantly.</p>
+    <form class="lead-form" id="leadForm" name="visa-assessment" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="visa-assessment">
+      <p class="hidden"><label>Don't fill this out: <input name="bot-field"></label></p>
+      <label for="fname">Full name</label>
+      <input id="fname" name="name" type="text" required placeholder="e.g. Wanjiru Kamau" autocomplete="name">
+      <label for="fphone">WhatsApp number</label>
+      <input id="fphone" name="whatsapp" type="tel" required placeholder="e.g. +254 7XX XXX XXX" autocomplete="tel">
+      <label for="femail">Email</label>
+      <input id="femail" name="email" type="email" required placeholder="you@company.com" autocomplete="email">
+      <input type="hidden" name="destination" id="hidDestination">
+      <input type="hidden" name="score" id="hidScore">
+      <input type="hidden" name="answers" id="hidAnswers">
+      <div class="nav">
+        <button type="button" class="back-btn" onclick="prevStep()">Back</button>
+        <button type="submit" class="cta">Show my score</button>
+      </div>
+      <p class="fine">We'll send your gap report on WhatsApp and email. No spam — delegation intel only. SAIS Events, Nairobi.</p>
+    </form>
+  </section>
+
+  <!-- ============ RESULTS ============ -->
+  <section class="step" id="stepResults">
+    <div class="score-shell">
+      <div class="dial">
+        <svg width="210" height="210" viewBox="0 0 210 210" aria-hidden="true">
+          <circle cx="105" cy="105" r="92" fill="none" stroke="rgba(245,239,226,.1)" stroke-width="10"/>
+          <circle id="dialArc" cx="105" cy="105" r="92" fill="none" stroke="url(#goldGrad)" stroke-width="10"
+                  stroke-linecap="round" stroke-dasharray="578" stroke-dashoffset="578"
+                  style="transition:stroke-dashoffset 1.1s cubic-bezier(.4,0,.2,1)"/>
+          <defs>
+            <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#d4af5a"/><stop offset="100%" stop-color="#e8c877"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="num"><strong id="scoreNum">0</strong><span>out of 100</span></div>
+      </div>
+      <div class="band" id="bandTitle"></div>
+      <p class="band-note" id="bandNote"></p>
+    </div>
+
+    <div class="gaps" id="gapList"></div>
+
+    <div class="offers" id="offers">
+      <div class="offer featured">
+        <div class="kicker">Fastest fix</div>
+        <h4>SAIS Visa Concierge</h4>
+        <p>We review your full document pack, secure your official expo invitation letter, prep your cover letter, and walk you through the embassy submission — so nothing bounces.</p>
+        <div class="price" id="conciergePrice"></div>
+        <a class="cta" id="conciergeCta" href="#" target="_blank" rel="noopener">Get concierge support on WhatsApp</a>
+      </div>
+      <div class="offer">
+        <div class="kicker">The full experience</div>
+        <h4 id="pkgTitle">Join the official SAIS delegation</h4>
+        <p id="pkgDesc">Visa support, flights, hotel, expo badge and on-ground coordination — one package, zero guesswork. Delegation slots are limited and deposits close before embassy deadlines.</p>
+        <a class="cta ghost" id="delegationCta" href="#" target="_blank" rel="noopener">Ask about delegation packages</a>
+      </div>
+    </div>
+
+    <p class="disclaimer">This is an educational readiness tool, not immigration or legal advice, and it does not predict or guarantee visa outcomes. Visa decisions are made solely by embassy and consular officials. Always confirm current requirements with the relevant embassy. SAIS Events provides delegation coordination and document support services.</p>
+  </section>
+
+</div>
+
+<script>
+/* ============================================================
+   CONFIG — edit these before deploying
+   ============================================================ */
+const CONFIG = {
+  whatsappNumber: "2547XXXXXXXX",           // TODO: Cindy's number, digits only, country code, no +
+  conciergePriceKES: "KES 19,500",
+  conciergePriceUSD: "USD 150",
+  events: {
+    china:  { name: "CIIE Shanghai",     dates: "5–10 Nov 2026" },
+    egypt:  { name: "Food Africa Cairo", dates: "7–10 Dec 2026" },
+    uae:    { name: "UAE trade expos",   dates: "2026 calendar" },
+    other:  { name: "your destination",  dates: "" }
+  }
+};
+
+/* ============================================================
+   STATE + FLOW
+   ============================================================ */
+const stepIds = ["step1","step2","step3","step4","step5","step6","step7","step8","step9","stepLead"];
+let current = -1;
+const answers = {};
+
+function show(id){
+  document.querySelectorAll(".step").forEach(s=>s.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function updateProgress(){
+  const total = stepIds.length;
+  const n = Math.min(current+1,total);
+  document.getElementById("stepLabel").textContent = `Step ${n} of ${total}`;
+  const pct = Math.round((current/total)*100);
+  document.getElementById("stepPct").textContent = pct + "%";
+  document.getElementById("progressFill").style.width = pct + "%";
+}
+function startQuiz(){
+  document.getElementById("intro").style.display="none";
+  document.getElementById("progress").style.display="block";
+  current = 0; show(stepIds[0]); updateProgress();
+}
+function nextStep(){
+  if(current < stepIds.length-1){ current++; show(stepIds[current]); updateProgress(); }
+}
+function prevStep(){
+  if(current > 0){ current--; show(stepIds[current]); updateProgress(); }
+}
+
+document.querySelectorAll(".step .opt").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    const step = btn.closest(".step");
+    step.querySelectorAll(".opt").forEach(o=>o.classList.remove("selected"));
+    btn.classList.add("selected");
+    answers[step.dataset.key] = btn.dataset.val;
+    setTimeout(nextStep, 220);
+  });
+});
+
+/* ============================================================
+   SCORING ENGINE
+   ============================================================ */
+function computeScore(){
+  let s = 0;
+  const gaps = [];   // {title, note, ok}
+
+  // Passport validity — gate factor (20)
+  if(answers.passportValidity==="yes"){ s+=20; }
+  else if(answers.passportValidity==="close"){ s+=8;
+    gaps.push({title:"Passport validity is borderline", note:"Renew now. Most embassies require 6 months' validity beyond your return date — 'close' gets rejected at the counter."});
+  } else {
+    gaps.push({title:"Passport not ready", note:"Apply for renewal or a new passport immediately — this blocks everything else. eCitizen processing can take weeks."});
+  }
+
+  // Blank pages (5)
+  if(answers.blankPages==="yes"){ s+=5; }
+  else gaps.push({title:"Not enough blank pages", note:"You need at least 2 blank visa pages. Renew or request a new booklet before applying."});
+
+  // Travel history (15)
+  if(answers.travelHistory==="strong"){ s+=15; }
+  else if(answers.travelHistory==="regional"){ s+=8;
+    gaps.push({title:"Thin international travel history", note:"Not fatal — but your documents need to compensate. Strong business ties and finances carry more weight for first-time applicants.", ok:true});
+  } else { s+=3;
+    gaps.push({title:"First international trip", note:"First-time applicants face extra scrutiny. A watertight invitation letter and clear proof of return ties are essential."});
+  }
+
+  // Refusals (15)
+  if(answers.refusals==="none"){ s+=15; }
+  else if(answers.refusals==="refused"){ s+=5;
+    gaps.push({title:"Previous visa refusal on record", note:"You must disclose it and address the refusal reason head-on in your cover letter. Hiding it is worse than the refusal itself."});
+  } else {
+    gaps.push({title:"Overstay / immigration flag", note:"This needs careful handling before you apply anywhere. Get professional guidance on how to present it."});
+  }
+
+  // Business standing (15)
+  if(answers.business==="registered2"){ s+=15; }
+  else if(answers.business==="registered"){ s+=10;
+    gaps.push({title:"Young company", note:"Under 2 years trading is workable — back it with contracts, invoices, KRA PIN and a clear business purpose for the trip.", ok:true});
+  } else if(answers.business==="employed"){ s+=12;
+    gaps.push({title:"Employer letter required", note:"You'll need an introduction letter from your employer confirming your role, salary, leave approval and the business purpose of travel.", ok:true});
+  } else { s+=3;
+    gaps.push({title:"Unregistered business", note:"Business visas for informal traders are hard. Registering your business (even a business name) materially improves your file."});
+  }
+
+  // Invitation letter (15)
+  if(answers.invitation==="yes"){ s+=15; }
+  else if(answers.invitation==="process"){ s+=8;
+    gaps.push({title:"Invitation letter in progress", note:"Chase it — for China this is mandatory and it gates your appointment. SAIS Events secures official expo invitations for delegates.", ok:true});
+  } else {
+    gaps.push({title:"No invitation letter", note:"For a China M visa this is a hard requirement. SAIS Events coordinates official invitation letters through expo organisers — this is the fastest gap to close."});
+  }
+
+  // Finances (10)
+  if(answers.finances==="strong"){ s+=10; }
+  else if(answers.finances==="thin"){ s+=4;
+    gaps.push({title:"Bank statements need strengthening", note:"Start now: consistent deposits over 3–6 months read far better than a sudden lump sum the week before you apply."});
+  } else {
+    gaps.push({title:"Financial evidence gap", note:"Statements are non-negotiable. Consider a company account or sponsor letter structure — and give it time to build history."});
+  }
+
+  // Timeline (5)
+  if(answers.timeline==="early"){ s+=5; }
+  else if(answers.timeline==="ok"){ s+=3; }
+  else if(answers.timeline==="late"){
+    gaps.push({title:"You're cutting it fine", note:"Under 4 weeks is high-risk for embassy processing from Nairobi. Move now — appointment slots fill in peak season."});
+  } else {
+    gaps.push({title:"No application timeline", note:"Work backwards from the expo dates: application in by 8 weeks out is the safe zone."});
+  }
+
+  // Hard caps
+  if(answers.passportValidity==="no") s = Math.min(s, 35);
+  if(answers.refusals==="overstay") s = Math.min(s, 45);
+
+  return { score: Math.max(0,Math.min(100,Math.round(s))), gaps };
+}
+
+function bandFor(score){
+  if(score>=80) return {title:"Visa-Ready", note:"Your profile is strong. Lock your embassy appointment, finalise the document pack, and don't let paperwork drift — readiness decays if you sit on it."};
+  if(score>=55) return {title:"Nearly There", note:"You're a few fixable gaps away from a strong application. Close the items below in order — most take days, not weeks."};
+  return {title:"Needs Work", note:"Applying today would be risky. The good news: every gap below has a fix, and with the right lead time you can still make the expo."};
+}
+
+/* ============================================================
+   LEAD FORM → RESULTS
+   ============================================================ */
+document.getElementById("leadForm").addEventListener("submit", async function(e){
+  e.preventDefault();
+  const result = computeScore();
+
+  document.getElementById("hidDestination").value = answers.destination || "";
+  document.getElementById("hidScore").value = result.score;
+  document.getElementById("hidAnswers").value = JSON.stringify(answers);
+
+  // Submit to Netlify Forms (fire and forget — never block the user's score)
+  try{
+    const data = new FormData(this);
+    await fetch("/", { method:"POST", headers:{"Content-Type":"application/x-www-form-urlencoded"},
+      body:new URLSearchParams(data).toString() });
+  }catch(err){ console.warn("Lead submit failed", err); }
+
+  renderResults(result);
+});
+
+function renderResults(result){
+  document.getElementById("progress").style.display="none";
+  show("stepResults");
+
+  // Dial
+  const arc = document.getElementById("dialArc");
+  const circumference = 578;
+  requestAnimationFrame(()=>{ arc.style.strokeDashoffset = circumference - (circumference * result.score/100); });
+
+  // Count-up
+  const numEl = document.getElementById("scoreNum");
+  let cur=0; const target=result.score;
+  const tick=()=>{ cur+=Math.max(1,Math.ceil((target-cur)/12)); if(cur>=target){numEl.textContent=target;} else {numEl.textContent=cur; requestAnimationFrame(tick);} };
+  tick();
+
+  const band = bandFor(result.score);
+  document.getElementById("bandTitle").textContent = band.title;
+  document.getElementById("bandNote").textContent = band.note;
+
+  // Gaps
+  const list = document.getElementById("gapList");
+  if(result.gaps.length){
+    list.innerHTML = "<h3>Your gap list</h3>" + result.gaps.map(g=>`
+      <div class="gap-item${g.ok?" ok":""}">
+        <span class="mark"></span>
+        <div><strong>${g.title}</strong><span>${g.note}</span></div>
+      </div>`).join("");
+  } else {
+    list.innerHTML = `<h3>Your gap list</h3>
+      <div class="gap-item ok"><span class="mark"></span>
+      <div><strong>No red flags detected</strong><span>Your answers show a clean, well-prepared profile. Now execute.</span></div></div>`;
+  }
+
+  // Offers
+  const ev = CONFIG.events[answers.destination] || CONFIG.events.other;
+  document.getElementById("conciergePrice").textContent =
+    `${CONFIG.conciergePriceKES} · ${CONFIG.conciergePriceUSD} per delegate`;
+  document.getElementById("pkgTitle").textContent = `Join the official SAIS delegation to ${ev.name}`;
+
+  const name = document.getElementById("fname").value.split(" ")[0] || "there";
+  const msg1 = encodeURIComponent(
+    `Hi SAIS Events! I'm ${name}. I just scored ${result.score}/100 on the Visa Readiness Check for ${ev.name}${ev.dates? " ("+ev.dates+")":""}. I'd like Visa Concierge support to close my gaps.`);
+  const msg2 = encodeURIComponent(
+    `Hi SAIS Events! I'm ${name}. I scored ${result.score}/100 on the Visa Readiness Check and I'd like details on the ${ev.name} delegation package.`);
+  document.getElementById("conciergeCta").href = `https://wa.me/${CONFIG.whatsappNumber}?text=${msg1}`;
+  document.getElementById("delegationCta").href = `https://wa.me/${CONFIG.whatsappNumber}?text=${msg2}`;
+}
+</script>
+</body>
+</html>

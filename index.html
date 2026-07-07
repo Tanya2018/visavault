@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAIS Visa Vault | Honest visa criteria for East Africa</title>
+<meta name="description" content="Real, embassy-grade visa requirements per country and category, deep readiness assessments, and the only official application links — built to stop East Africans getting scammed by agents.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --jungle-1:#0b2e1f; --jungle-2:#123a28; --jungle-3:#1a4a33;
+    --gold:#d4af5a; --gold-bright:#e8c877; --cream:#f5efe2;
+    --cream-dim:rgba(245,239,226,.66); --red:#e07a5f;
+    --card:rgba(255,255,255,.045); --line:rgba(212,175,90,.28);
+    --ok:#7fb98a;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Manrope',sans-serif;background:linear-gradient(165deg,var(--jungle-1),var(--jungle-2) 55%,var(--jungle-3));min-height:100vh;color:var(--cream);-webkit-font-smoothing:antialiased}
+  .wrap{max-width:920px;margin:0 auto;padding:26px 20px 90px}
+  a{color:var(--gold-bright)}
+
+  .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:40px;flex-wrap:wrap;gap:12px}
+  .logo{color:var(--cream);text-decoration:none;font-weight:800;letter-spacing:.13em;font-size:.85rem;text-transform:uppercase}
+  .logo span{color:var(--gold)}
+  .status-pill{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;padding:6px 12px;border-radius:20px;border:1px solid var(--line);color:var(--cream-dim)}
+  .status-pill.unlocked{color:var(--ok);border-color:rgba(127,185,138,.5)}
+  .diamond{display:inline-block;width:6px;height:6px;background:var(--gold);transform:rotate(45deg);margin:0 8px;vertical-align:middle}
+
+  .hero{margin-bottom:40px}
+  .hero h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(2.2rem,6vw,3.4rem);line-height:1.1;margin-bottom:16px}
+  .hero h1 em{font-style:italic;color:var(--gold-bright)}
+  .hero .lede{color:var(--cream-dim);font-size:1.05rem;line-height:1.65;max-width:60ch}
+  .hero .row{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
+  .btn{display:inline-block;text-decoration:none;text-align:center;border:none;cursor:pointer;font-family:'Manrope',sans-serif;font-weight:800;font-size:.9rem;padding:14px 28px;border-radius:5px;transition:transform .16s ease}
+  .btn:hover{transform:translateY(-2px)}
+  .btn:focus-visible{outline:3px solid var(--cream);outline-offset:3px}
+  .btn-gold{background:linear-gradient(120deg,var(--gold),var(--gold-bright));color:var(--jungle-1);box-shadow:0 6px 22px rgba(212,175,90,.25)}
+  .btn-ghost{background:none;border:1px solid var(--gold);color:var(--gold-bright)}
+
+  .trust{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:44px}
+  .trust div{background:var(--card);border:1px solid rgba(245,239,226,.1);border-radius:8px;padding:16px 18px}
+  .trust strong{display:block;font-family:'Instrument Serif',serif;font-size:1.5rem;color:var(--gold-bright);margin-bottom:2px}
+  .trust span{font-size:.8rem;color:var(--cream-dim);line-height:1.4}
+  @media(max-width:640px){.trust{grid-template-columns:1fr}}
+
+  .eyebrow{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:800;margin-bottom:12px}
+  h2.sec{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(1.6rem,4vw,2.2rem);margin-bottom:6px}
+  .sec-sub{color:var(--cream-dim);font-size:.95rem;margin-bottom:26px;line-height:1.6}
+
+  .cats{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
+  .cat{background:var(--card);border:1px solid rgba(245,239,226,.14);color:var(--cream);padding:10px 18px;border-radius:24px;cursor:pointer;font-family:'Manrope',sans-serif;font-weight:700;font-size:.85rem;transition:all .15s ease}
+  .cat:hover{border-color:var(--gold)}
+  .cat.active{background:linear-gradient(120deg,var(--gold),var(--gold-bright));color:var(--jungle-1);border-color:var(--gold)}
+  .cat:focus-visible{outline:2px solid var(--cream);outline-offset:2px}
+
+  .region-label{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--cream-dim);margin:22px 0 12px;font-weight:700}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+  .cc{text-align:left;background:var(--card);border:1px solid rgba(245,239,226,.12);border-radius:9px;padding:16px 18px;cursor:pointer;transition:all .15s ease;position:relative;font-family:'Manrope',sans-serif;color:var(--cream)}
+  .cc:hover{border-color:var(--gold);background:rgba(212,175,90,.07);transform:translateY(-2px)}
+  .cc:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  .cc .flag{font-size:1.5rem;margin-bottom:8px;display:block}
+  .cc .cname{font-weight:800;font-size:1rem;margin-bottom:3px}
+  .cc .cmeta{font-size:.76rem;color:var(--cream-dim)}
+  .cc .badge{position:absolute;top:12px;right:12px;font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:10px;font-weight:800}
+  .badge.verified{background:rgba(127,185,138,.16);color:var(--ok)}
+  .badge.draft{background:rgba(245,239,226,.1);color:var(--cream-dim)}
+  .badge.verify{background:rgba(224,122,95,.16);color:var(--red)}
+
+  .panel{margin-top:14px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:26px 24px;display:none;animation:fade .3s ease}
+  .panel.open{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .panel .phead{display:flex;align-items:flex-start;gap:14px;margin-bottom:16px}
+  .panel .phead .fl{font-size:2rem}
+  .panel h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:1.7rem;line-height:1.1}
+  .panel .vtitle{color:var(--gold-bright);font-weight:700;font-size:.9rem;margin-top:2px}
+  .verified-line{font-size:.74rem;color:var(--cream-dim);margin:4px 0 18px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .verified-line .dot{width:7px;height:7px;border-radius:50%;background:var(--ok);display:inline-block}
+  .verified-line.stale .dot{background:var(--red)}
+
+  .applicant-note{background:rgba(212,175,90,.09);border-left:3px solid var(--gold);border-radius:5px;padding:13px 16px;font-size:.9rem;line-height:1.55;margin-bottom:20px}
+
+  .fact-row{display:grid;grid-template-columns:120px 1fr;gap:10px;padding:11px 0;border-bottom:1px solid rgba(245,239,226,.08);font-size:.92rem;line-height:1.55}
+  .fact-row .k{color:var(--gold);font-weight:700;font-size:.78rem;letter-spacing:.05em;text-transform:uppercase;padding-top:2px}
+  @media(max-width:520px){.fact-row{grid-template-columns:1fr;gap:2px}}
+
+  .doclist{list-style:none;margin:6px 0 0}
+  .doclist li{position:relative;padding-left:20px;margin-bottom:9px;font-size:.9rem;line-height:1.5;color:var(--cream)}
+  .doclist li::before{content:'';position:absolute;left:0;top:7px;width:7px;height:7px;background:var(--gold);transform:rotate(45deg)}
+
+  .scam{background:rgba(224,122,95,.1);border:1px solid rgba(224,122,95,.35);border-radius:8px;padding:16px 18px;margin-top:20px}
+  .scam .stag{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--red);font-weight:800;margin-bottom:8px;display:flex;align-items:center;gap:7px}
+  .scam p{font-size:.9rem;line-height:1.6;color:var(--cream)}
+
+  .killers{margin-top:18px}
+  .killers .stag{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-weight:800;margin-bottom:8px}
+  .killers ul{list-style:none}
+  .killers li{padding-left:20px;position:relative;font-size:.88rem;line-height:1.5;margin-bottom:7px;color:var(--cream-dim)}
+  .killers li::before{content:'\00d7';position:absolute;left:2px;top:-1px;color:var(--red);font-weight:800;font-size:1.1rem}
+
+  /* OFFICIAL APPLY block */
+  .official{margin-top:22px;background:rgba(127,185,138,.08);border:1px solid rgba(127,185,138,.4);border-radius:10px;padding:18px 20px}
+  .official .otag{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ok);font-weight:800;margin-bottom:12px;display:flex;align-items:center;gap:7px}
+  .official .olink{display:flex;align-items:center;gap:10px;padding:11px 14px;background:rgba(255,255,255,.04);border:1px solid rgba(245,239,226,.14);border-radius:7px;margin-bottom:9px;text-decoration:none;color:var(--cream);transition:border-color .15s ease}
+  .official .olink:hover{border-color:var(--ok)}
+  .official .olink .ochk{flex:0 0 auto;font-size:.6rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--jungle-1);background:var(--ok);padding:3px 7px;border-radius:5px}
+  .official .olink .otxt{font-size:.88rem;line-height:1.35}
+  .official .olink .otxt small{display:block;color:var(--cream-dim);font-size:.75rem;word-break:break-all}
+  .official .owarn{font-size:.82rem;line-height:1.55;color:var(--cream);margin-top:10px;padding-top:10px;border-top:1px dashed rgba(224,122,95,.4)}
+  .official .owarn b{color:var(--red)}
+
+  .src{margin-top:18px;font-size:.78rem}
+  .src a{color:var(--gold-bright);word-break:break-all}
+
+  .assess-launch{margin-top:20px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .assess-launch .note{font-size:.82rem;color:var(--cream-dim)}
+
+  .draft-state{text-align:center;padding:30px 10px}
+  .draft-state .di{font-size:2rem;margin-bottom:10px}
+  .draft-state p{color:var(--cream-dim);font-size:.92rem;line-height:1.6;max-width:44ch;margin:0 auto 4px}
+
+  .lock{position:relative}
+  .lock .panel{filter:blur(6px);pointer-events:none;user-select:none;opacity:.5}
+  .lockcard{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px;z-index:2}
+  .lockcard .lk{font-size:1.6rem;margin-bottom:10px}
+  .lockcard h4{font-family:'Instrument Serif',serif;font-weight:400;font-size:1.5rem;margin-bottom:8px}
+  .lockcard p{color:var(--cream-dim);font-size:.9rem;line-height:1.55;max-width:40ch;margin-bottom:18px}
+
+  .pricing{margin-top:56px;border:1px solid var(--line);border-radius:14px;padding:34px 28px;background:linear-gradient(135deg,rgba(212,175,90,.12),rgba(212,175,90,.03))}
+  .pricing .eyebrow{text-align:center}
+  .pricing h2{text-align:center;font-family:'Instrument Serif',serif;font-weight:400;font-size:2rem;margin-bottom:6px}
+  .price-big{text-align:center;margin:14px 0 6px}
+  .price-big strong{font-family:'Instrument Serif',serif;font-size:3.2rem;color:var(--gold-bright)}
+  .price-big span{color:var(--cream-dim);font-size:1rem}
+  .price-sub{text-align:center;color:var(--cream-dim);font-size:.9rem;margin-bottom:24px}
+  .perks{max-width:460px;margin:0 auto 26px}
+  .perks li{list-style:none;padding-left:26px;position:relative;margin-bottom:11px;font-size:.93rem;line-height:1.5}
+  .perks li::before{content:'';position:absolute;left:2px;top:6px;width:8px;height:8px;background:var(--gold);transform:rotate(45deg)}
+  .pricing .btn{display:block;max-width:320px;margin:0 auto}
+
+  .disclaimer{margin-top:50px;font-size:.74rem;color:rgba(245,239,226,.42);line-height:1.65;border-top:1px solid rgba(245,239,226,.1);padding-top:20px}
+  .hidden{display:none!important}
+
+  .edu{margin-top:8px;display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:8px}
+  .edu .e{background:var(--card);border:1px solid rgba(245,239,226,.1);border-radius:9px;padding:18px 20px}
+  .edu .e h4{font-size:.95rem;font-weight:800;margin-bottom:6px;color:var(--gold-bright)}
+  .edu .e p{font-size:.86rem;color:var(--cream-dim);line-height:1.55}
+  @media(max-width:640px){.edu{grid-template-columns:1fr}}
+
+  /* ===== ASSESSMENT MODAL ===== */
+  .amodal{position:fixed;inset:0;background:rgba(6,20,14,.82);backdrop-filter:blur(4px);z-index:50;display:none;overflow-y:auto;padding:24px 16px}
+  .amodal.open{display:block}
+  .asheet{max-width:640px;margin:20px auto;background:linear-gradient(165deg,var(--jungle-2),var(--jungle-1));border:1px solid var(--line);border-radius:16px;padding:28px 26px;position:relative}
+  .aclose{position:absolute;top:16px;right:18px;background:none;border:none;color:var(--cream-dim);font-size:1.5rem;cursor:pointer;line-height:1}
+  .aclose:hover{color:var(--cream)}
+  .aprogress{height:3px;background:rgba(245,239,226,.12);border-radius:2px;overflow:hidden;margin-bottom:20px}
+  .aprogress .fill{height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--gold-bright));transition:width .35s ease}
+  .astep .qhead{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;font-weight:700}
+  .astep h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:1.5rem;line-height:1.22;margin-bottom:6px}
+  .astep .qhelp{color:var(--cream-dim);font-size:.88rem;line-height:1.55;margin-bottom:20px}
+  .aopt{display:block;width:100%;text-align:left;background:var(--card);border:1px solid rgba(245,239,226,.14);color:var(--cream);border-radius:8px;padding:14px 16px;margin-bottom:10px;cursor:pointer;font-family:'Manrope',sans-serif;font-size:.93rem;font-weight:600;transition:all .14s ease;position:relative}
+  .aopt:hover{border-color:var(--gold);background:rgba(212,175,90,.07)}
+  .aopt.sel{border-color:var(--gold);background:rgba(212,175,90,.14)}
+  .aopt.sel::after{content:'';position:absolute;right:16px;top:50%;width:8px;height:8px;background:var(--gold);transform:translateY(-50%) rotate(45deg)}
+  .aopt.multi.sel::after{content:'\2713';background:none;color:var(--gold);transform:translateY(-50%);font-weight:800}
+  .anav{display:flex;justify-content:space-between;margin-top:22px;gap:12px}
+  .anav button{font-family:'Manrope',sans-serif;font-weight:800;font-size:.85rem;padding:12px 24px;border-radius:5px;cursor:pointer;border:none}
+  .aback{background:none;border:1px solid rgba(245,239,226,.25);color:var(--cream-dim)}
+  .aback:hover{border-color:var(--cream);color:var(--cream)}
+  .anext{background:linear-gradient(120deg,var(--gold),var(--gold-bright));color:var(--jungle-1)}
+  .anext:disabled{opacity:.4;cursor:not-allowed}
+
+  /* result */
+  .ares{text-align:center}
+  .adial{position:relative;width:180px;height:180px;margin:6px auto 8px}
+  .adial svg{transform:rotate(-90deg)}
+  .adial .num{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+  .adial .num strong{font-family:'Instrument Serif',serif;font-weight:400;font-size:3rem;line-height:1}
+  .adial .num span{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cream-dim);margin-top:5px}
+  .aband{font-family:'Instrument Serif',serif;font-size:1.5rem;margin:6px 0 6px}
+  .aband-note{color:var(--cream-dim);font-size:.92rem;line-height:1.6;max-width:46ch;margin:0 auto 22px}
+  .agaps{text-align:left;margin-top:8px}
+  .agaps h4{font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-weight:800;margin-bottom:12px}
+  .agap{display:flex;gap:11px;align-items:flex-start;background:var(--card);border:1px solid rgba(245,239,226,.1);border-left:3px solid var(--red);border-radius:6px;padding:12px 15px;margin-bottom:9px;font-size:.9rem;line-height:1.5}
+  .agap.crit{border-left-color:#c9483a;background:rgba(201,72,58,.1)}
+  .agap .m{flex:0 0 auto;width:7px;height:7px;margin-top:6px;transform:rotate(45deg);background:var(--red)}
+  .agap.clean{border-left-color:var(--ok)}
+  .agap.clean .m{background:var(--ok)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top">
+    <a href="/" class="logo">SAIS <span>Visa Vault</span></a>
+    <div class="status-pill" id="statusPill">🔒 Free preview</div>
+  </div>
+
+  <section class="hero">
+    <div class="eyebrow">Honest visa intelligence for East Africa</div>
+    <h1>Stop paying agents<br>for what should be <em>free.</em></h1>
+    <p class="lede">Real, embassy-grade requirements for every major destination — per country, per visa type. A deep readiness assessment for each route. And the one official application link, so you never land on a fake consulate site again.</p>
+    <div class="row">
+      <a class="btn btn-gold" href="#vault">Browse the vault</a>
+      <a class="btn btn-ghost" href="/visa-check.html">Quick readiness check →</a>
+    </div>
+  </section>
+
+  <div class="trust">
+    <div><strong id="tCountries">10</strong><span>Destinations, five visa categories each</span></div>
+    <div><strong>Monthly</strong><span>Re-verified against official embassy sources</span></div>
+    <div><strong>$15</strong><span>What agents charge 20× for — the same public info</span></div>
+  </div>
+
+  <section>
+    <div class="eyebrow">Free · the stuff agents don't want you to know</div>
+    <h2 class="sec">Three lies that cost Kenyans millions</h2>
+    <p class="sec-sub">These are free. The full per-country criteria are inside the vault.</p>
+    <div class="edu">
+      <div class="e"><h4>"You need an ETIAS for Europe"</h4><p>False for Kenyan passports. ETIAS is only for visa-exempt nationals. You need a full Schengen Type C visa. Agents sell fake "ETIAS help" all the time.</p></div>
+      <div class="e"><h4>"I can guarantee your US visa"</h4><p>Nobody can. The consular officer decides, alone, at interview. Anyone promising approval for a fee is running a scam — full stop.</p></div>
+      <div class="e"><h4>"Pay me to book your appointment"</h4><p>You can book your own VFS / embassy slot for free. Paying a "fixer" to click a calendar is pure markup on a task you can do yourself.</p></div>
+      <div class="e"><h4>"Here's a Certificate of Sponsorship / LMIA / job offer"</h4><p>Bought sponsorship documents are fraud — and they ban you. Real work routes exist; the shortcut ones are traps.</p></div>
+    </div>
+  </section>
+
+  <section id="vault" style="margin-top:48px">
+    <div class="eyebrow">The vault</div>
+    <h2 class="sec">Pick a visa type, then a country.</h2>
+    <p class="sec-sub">Every card shows when it was last verified, the official application link, and a full readiness assessment for that exact route.</p>
+    <div class="cats" id="cats"></div>
+    <div id="grid"></div>
+    <div id="detailMount"></div>
+  </section>
+
+  <section class="pricing" id="pricing">
+    <div class="eyebrow">Membership</div>
+    <h2>The Visa Vault</h2>
+    <div class="price-big"><strong>$15</strong><span>/month</span></div>
+    <p class="price-sub">Cancel anytime. One saved agent fee pays for years of this.</p>
+    <ul class="perks">
+      <li>Full requirements for every country + category — documents, fees, processing, all of it</li>
+      <li>A deep, route-specific readiness assessment for each visa (not a generic quiz)</li>
+      <li>The scam-warning + the ONE official application link on every visa</li>
+      <li>"Last verified" dates + official source links on every entry</li>
+      <li>Monthly update log when rules, fees or processing times change</li>
+      <li>Priority line to SAIS for delegation & concierge support</li>
+    </ul>
+    <a class="btn btn-gold" id="whopBtn" href="#" target="_blank" rel="noopener">Unlock the vault — $15/mo</a>
+  </section>
+
+  <p class="disclaimer">
+    SAIS Visa Vault is an independent educational resource. It is not immigration or legal advice, and it does not predict or guarantee any visa outcome. Visa decisions are made solely by the embassies, consulates and immigration authorities of each country. Requirements, fees and processing times change frequently — always confirm the current rules on the official government or embassy source linked on each entry before you apply. SAIS Events / Smart AI Solutions, Nairobi.
+  </p>
+</div>
+
+<!-- ASSESSMENT MODAL -->
+<div class="amodal" id="amodal">
+  <div class="asheet">
+    <button class="aclose" id="aclose" aria-label="Close">&times;</button>
+    <div class="aprogress"><div class="fill" id="aFill"></div></div>
+    <div id="aBody"></div>
+  </div>
+</div>
+
+<script src="./data.js"></script>
+<script src="./assessments.js"></script>
+<script src="./interviews.js"></script>
+<script>
+/* ================= CONFIG ================= */
+const CFG = {
+  whopUrl: "https://whop.com/YOUR-VISA-VAULT-PRODUCT/",
+  freePreview: { country: "schengen", category: "tourism" }
+};
+const params = new URLSearchParams(location.search);
+let UNLOCKED = params.get("unlocked")==="1" || params.get("whop_valid")==="true";
+
+const D = window.VISA_DATA;
+const A = window.VISA_ASSESSMENTS;
+const IV = window.VISA_INTERVIEWS;
+let activeCat = D.categories[0].id;
+
+document.getElementById("whopBtn").href = CFG.whopUrl;
+document.getElementById("tCountries").textContent = Object.keys(D.countries).length;
+if(UNLOCKED){
+  const p=document.getElementById("statusPill");
+  p.textContent="✓ Member — full access"; p.classList.add("unlocked");
+  document.getElementById("pricing").classList.add("hidden");
+}
+
+/* ================= CATEGORY TABS ================= */
+const catsEl=document.getElementById("cats");
+D.categories.forEach(c=>{
+  const b=document.createElement("button");
+  b.className="cat"+(c.id===activeCat?" active":"");
+  b.textContent=c.label; b.setAttribute("aria-pressed",c.id===activeCat);
+  b.onclick=()=>{activeCat=c.id;renderCats();renderGrid();document.getElementById("detailMount").innerHTML="";};
+  catsEl.appendChild(b);
+});
+function renderCats(){[...catsEl.children].forEach((b,i)=>{const on=D.categories[i].id===activeCat;b.classList.toggle("active",on);b.setAttribute("aria-pressed",on);});}
+
+/* ================= COUNTRY GRID ================= */
+const gridEl=document.getElementById("grid");
+function renderGrid(){
+  gridEl.innerHTML="";
+  D.regions.forEach(region=>{
+    const label=document.createElement("div");label.className="region-label";label.textContent=region.label;gridEl.appendChild(label);
+    const g=document.createElement("div");g.className="grid";
+    region.countries.forEach(code=>{
+      const country=D.countries[code];if(!country)return;
+      const visa=country.visas[activeCat];const status=visa?(visa.status||"draft"):"draft";
+      const btn=document.createElement("button");btn.className="cc";
+      btn.innerHTML=`<span class="badge ${status}">${status==='verified'?'Verified':status==='verify'?'Recheck':'Coming soon'}</span>
+        <span class="flag">${country.flag}</span><span class="cname">${country.name}</span>
+        <span class="cmeta">${visa?(visa.title||country.name):'—'}</span>`;
+      btn.onclick=()=>openDetail(code);
+      g.appendChild(btn);
+    });
+    gridEl.appendChild(g);
+  });
+}
+
+/* ================= DETAIL PANEL ================= */
+function isFreeTaster(code){return code===CFG.freePreview.country&&activeCat===CFG.freePreview.category;}
+function openDetail(code){
+  const mount=document.getElementById("detailMount");
+  const country=D.countries[code];const visa=country.visas[activeCat];
+  const canRead=UNLOCKED||isFreeTaster(code);
+  if(!visa||visa.status==="draft"){
+    mount.innerHTML=panelWrap(code,`<div class="draft-state"><div class="di">🛠️</div>
+      <p><strong>${country.name} · ${catLabel()}</strong></p>
+      <p>${visa&&visa.note?visa.note.replace(/SEED.*$/,''):'This entry is being verified.'}</p>
+      <p style="margin-top:10px;color:var(--gold)">Being sourced now — members get it the moment it's verified.</p></div>`);
+    scrollPanel();return;
+  }
+  const body=renderVisaBody(code,country,visa,canRead);
+  if(canRead){ mount.innerHTML=panelWrap(code,body); }
+  else{
+    mount.innerHTML=`<div class="lock">${panelWrap(code,body)}
+      <div class="lockcard"><div class="lk">🔒</div><h4>This one's inside the vault</h4>
+      <p>Full requirements, the readiness assessment, and the official apply link for ${country.name} ${catLabel().toLowerCase()}. $15/month, cancel anytime.</p>
+      <a class="btn btn-gold" href="${CFG.whopUrl}" target="_blank" rel="noopener">Unlock the vault</a></div></div>`;
+  }
+  scrollPanel();
+}
+function catLabel(){return D.categories.find(c=>c.id===activeCat).label;}
+function panelWrap(code,inner){
+  const country=D.countries[code];const visa=country.visas[activeCat];
+  return `<div class="panel open"><div class="phead"><div class="fl">${country.flag}</div>
+    <div><h3>${country.name}</h3><div class="vtitle">${visa?(visa.title||''):''}</div></div></div>${inner}</div>`;
+}
+function renderVisaBody(code,country,visa,canRead){
+  const stale=isStale(visa.lastVerified);
+  const rows=[];
+  if(visa.stay)rows.push(fact("Stay",visa.stay));
+  if(visa.fee)rows.push(fact("Fee",visa.fee));
+  if(visa.processing)rows.push(fact("Processing",visa.processing));
+  if(country.where)rows.push(fact("Where to apply",country.where));
+  const docs=(visa.docs||[]).map(d=>`<li>${d}</li>`).join("");
+  const killers=(visa.killers||[]).map(k=>`<li>${k}</li>`).join("");
+  const hasAssessment=A[code]&&A[code][activeCat];
+
+  return `<div class="verified-line ${stale?'stale':''}"><span class="dot"></span>
+      ${stale?'Verify current details — ':'Last verified '}<strong>${visa.lastVerified||'—'}</strong>
+      <span class="diamond"></span> ${catLabel()} visa</div>
+    ${country.applicantNote?`<div class="applicant-note">${country.applicantNote}</div>`:''}
+    ${rows.join("")}
+    ${docs?`<div style="margin-top:18px"><div class="eyebrow">What you need</div><ul class="doclist">${docs}</ul></div>`:''}
+    ${visa.scamNote?`<div class="scam"><div class="stag">⚠ How agents scam you here</div><p>${visa.scamNote}</p></div>`:''}
+    ${killers?`<div class="killers"><div class="stag">What gets applications refused</div><ul>${killers}</ul></div>`:''}
+    ${visa.applyOfficial?renderOfficial(visa.applyOfficial):''}
+    ${(hasAssessment||(IV[code]&&IV[code][activeCat]))&&canRead?`<div class="assess-launch">
+        ${hasAssessment?`<button class="btn btn-gold" onclick="launchAssessment('${code}','${activeCat}')">Readiness assessment →</button>`:''}
+        ${IV[code]&&IV[code][activeCat]?`<button class="btn btn-ghost" onclick="launchInterview('${code}','${activeCat}')">🎤 Mock interview →</button>`:''}
+        <span class="note">${hasAssessment?A[code][activeCat].questions.length+' questions · scored gap list':''}${IV[code]&&IV[code][activeCat]?' · AI-coached interview drill':''}</span>
+      </div>`:''}
+    ${visa.source?`<div class="src">Official source: <a href="${visa.source}" target="_blank" rel="noopener">${visa.source}</a></div>`:''}`;
+}
+function renderOfficial(o){
+  const link=(url,label,sub)=>`<a class="olink" href="${url}" target="_blank" rel="noopener">
+    <span class="ochk">✓ Official</span><span class="otxt">${label}${sub?`<small>${url}</small>`:''}</span></a>`;
+  let inner="";
+  if(o.formUrl) inner+=link(o.formUrl,o.formLabel||"Official application",true);
+  if(o.vac&&o.vac.url) inner+=link(o.vac.url,o.vac.name||"Visa Application Centre",false);
+  if(o.verifyRegister&&o.verifyRegister.url) inner+=link(o.verifyRegister.url,o.verifyRegister.name||"Verify an adviser",false);
+  return `<div class="official"><div class="otag">✓ Apply — official links only</div>${inner}
+    ${o.scamLinkWarning?`<div class="owarn"><b>Watch out:</b> ${o.scamLinkWarning}</div>`:''}</div>`;
+}
+function fact(k,v){return `<div class="fact-row"><div class="k">${k}</div><div>${v}</div></div>`;}
+function isStale(d){if(!d)return true;return (new Date()-new Date(d))/(1000*60*60*24)>90;}
+function scrollPanel(){requestAnimationFrame(()=>{document.getElementById("detailMount").scrollIntoView({behavior:"smooth",block:"start"});});}
+
+/* ================= ASSESSMENT ENGINE ================= */
+let AS=null; // active session
+function launchAssessment(code,cat){
+  const spec=A[code][cat];
+  AS={code,cat,spec,idx:0,answers:{}};
+  document.getElementById("amodal").classList.add("open");
+  document.body.style.overflow="hidden";
+  renderQuestion();
+}
+function closeAssessment(){
+  document.getElementById("amodal").classList.remove("open");
+  document.body.style.overflow="";AS=null;
+}
+document.getElementById("aclose").onclick=closeAssessment;
+document.getElementById("amodal").onclick=(e)=>{if(e.target.id==="amodal")closeAssessment();};
+
+function renderQuestion(){
+  const {spec,idx,answers}=AS;
+  const total=spec.questions.length;
+  document.getElementById("aFill").style.width=Math.round((idx/total)*100)+"%";
+  const q=spec.questions[idx];
+  const chosen=answers[q.id];
+  const multi=q.type==="multi";
+  const opts=q.options.map(o=>{
+    const sel=multi?(Array.isArray(chosen)&&chosen.includes(o.val)):(chosen===o.val);
+    return `<button class="aopt ${multi?'multi':''} ${sel?'sel':''}" data-val="${o.val}">${o.label}</button>`;
+  }).join("");
+  document.getElementById("aBody").innerHTML=`
+    <div class="astep">
+      <div class="qhead">Question ${idx+1} of ${total}${multi?' · pick all that apply':''}</div>
+      <h3>${q.q}</h3>
+      ${q.help?`<div class="qhelp">${q.help}</div>`:''}
+      ${opts}
+      <div class="anav">
+        <button class="aback" ${idx===0?'style="visibility:hidden"':''} onclick="prevQ()">Back</button>
+        <button class="anext" id="aNextBtn" onclick="nextQ()" ${chosen?'':'disabled'}>${idx===total-1?'See my score':'Next'}</button>
+      </div>
+    </div>`;
+  document.querySelectorAll("#aBody .aopt").forEach(b=>{
+    b.onclick=()=>{
+      const val=b.dataset.val;
+      if(multi){
+        let arr=Array.isArray(answers[q.id])?answers[q.id].slice():[];
+        if(arr.includes(val))arr=arr.filter(x=>x!==val);else arr.push(val);
+        answers[q.id]=arr;
+      } else { answers[q.id]=val; }
+      renderQuestion();
+    };
+  });
+}
+function prevQ(){if(AS.idx>0){AS.idx--;renderQuestion();}}
+function nextQ(){
+  const q=AS.spec.questions[AS.idx];
+  if(!AS.answers[q.id]||(Array.isArray(AS.answers[q.id])&&!AS.answers[q.id].length))return;
+  if(AS.idx<AS.spec.questions.length-1){AS.idx++;renderQuestion();}
+  else showResult();
+}
+
+function scoreAssessment(){
+  const {spec,answers}=AS;
+  let earned=0,max=0,capped=false,gaps=[];
+  spec.questions.forEach(q=>{
+    const best=Math.max(...q.options.map(o=>o.score||0));
+    max+=best;
+    const chosen=answers[q.id];
+    if(q.type==="multi"){
+      let sub=0;
+      (chosen||[]).forEach(v=>{const o=q.options.find(x=>x.val===v);if(o){sub+=o.score||0;if(o.gap)gaps.push({t:o.gap,crit:!!o.critical});}});
+      // also collect gaps from unpicked "none" style not needed
+      earned+=Math.min(sub,best);
+    } else {
+      const o=q.options.find(x=>x.val===chosen);
+      if(o){earned+=o.score||0;if(o.gap)gaps.push({t:o.gap,crit:!!o.critical});if(o.critical)capped=true;}
+    }
+  });
+  let score=max>0?Math.round((earned/max)*100):0;
+  if(capped)score=Math.min(score,45); // any critical answer caps readiness
+  gaps.sort((a,b)=>(b.crit?1:0)-(a.crit?1:0));
+  return {score,gaps,capped};
+}
+function bandFor(s){
+  if(s>=80)return{t:"Strong — apply with confidence",n:"Your profile ticks the big boxes. Tidy the small gaps below, use the official link, and go."};
+  if(s>=55)return{t:"Nearly there",n:"A few fixable gaps stand between you and a strong file. Close them in order — most take days."};
+  return{t:"Not ready yet",n:"Applying today would be risky. Every gap below has a fix. Work through them before you spend a shilling on fees."};
+}
+function showResult(){
+  document.getElementById("aFill").style.width="100%";
+  const {code,cat,spec}=AS;
+  const r=scoreAssessment();
+  const band=bandFor(r.score);
+  const country=D.countries[code];
+  const off=spec.official||(country.visas[cat]&&country.visas[cat].applyOfficial);
+  const circ=534; // 2πr for r=85
+  const gapsHtml=r.gaps.length?r.gaps.map(g=>`<div class="agap ${g.crit?'crit':''}"><span class="m"></span><div>${g.t}</div></div>`).join(""):
+    `<div class="agap clean"><span class="m"></span><div>No red flags in your answers. Strong profile — now execute cleanly.</div></div>`;
+  document.getElementById("aBody").innerHTML=`
+    <div class="ares">
+      <div class="qhead" style="color:var(--gold)">${country.flag} ${country.name} · ${spec.intro?'':''}${D.categories.find(c=>c.id===cat).label} readiness</div>
+      <div class="adial">
+        <svg width="180" height="180" viewBox="0 0 180 180">
+          <circle cx="90" cy="90" r="85" fill="none" stroke="rgba(245,239,226,.1)" stroke-width="9"/>
+          <circle id="aArc" cx="90" cy="90" r="85" fill="none" stroke="url(#ag)" stroke-width="9" stroke-linecap="round"
+            stroke-dasharray="${circ}" stroke-dashoffset="${circ}" style="transition:stroke-dashoffset 1s cubic-bezier(.4,0,.2,1)"/>
+          <defs><linearGradient id="ag" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#d4af5a"/><stop offset="100%" stop-color="#e8c877"/></linearGradient></defs>
+        </svg>
+        <div class="num"><strong id="aScoreNum">0</strong><span>out of 100</span></div>
+      </div>
+      <div class="aband">${band.t}</div>
+      <p class="aband-note">${band.n}</p>
+      <div class="agaps"><h4>Your gap list — fix these first</h4>${gapsHtml}</div>
+      ${off?renderOfficial(off):''}
+      <div class="anav"><button class="aback" onclick="AS.idx=0;renderQuestion()">← Review answers</button>
+        <button class="anext" onclick="closeAssessment()">Done</button></div>
+      <p style="font-size:.72rem;color:rgba(245,239,226,.4);margin-top:16px;line-height:1.5">Educational only — not a prediction or guarantee. Confirm current rules on the official link above before applying.</p>
+    </div>`;
+  const arc=document.getElementById("aArc");
+  requestAnimationFrame(()=>{arc.style.strokeDashoffset=circ-(circ*r.score/100);});
+  let cur=0;const el=document.getElementById("aScoreNum");
+  (function tick(){cur+=Math.max(1,Math.ceil((r.score-cur)/12));if(cur>=r.score){el.textContent=r.score;}else{el.textContent=cur;requestAnimationFrame(tick);}})();
+}
+
+/* ================= INTERVIEW SIMULATOR ================= */
+let IS=null;
+function launchInterview(code,cat){
+  const spec=IV[code][cat];
+  IS={code,cat,spec,idx:0,answers:{},scores:{}};
+  document.getElementById("amodal").classList.add("open");
+  document.body.style.overflow="hidden";
+  renderInterviewIntro();
+}
+function renderInterviewIntro(){
+  const {spec,code}=IS;const country=D.countries[code];
+  document.getElementById("aFill").style.width="0%";
+  document.getElementById("aBody").innerHTML=`
+    <div class="astep">
+      <div class="qhead">${country.flag} ${country.name} · Mock interview</div>
+      <h3>The interview that actually decides it.</h3>
+      <div class="qhelp" style="margin-bottom:18px">${spec.context}</div>
+      <div class="scam" style="margin-top:0"><div class="stag">How this works</div>
+        <p>You'll answer ${spec.questions.length} real questions in your own words. After each one, our AI coach — the same SAIS engine we build for businesses — scores your answer against what this embassy actually looks for, and tells you exactly how to make it stronger. Answer like you're at the window. No perfect grammar needed.</p></div>
+      <div class="anav"><button class="aback" onclick="closeInterview()">Cancel</button>
+        <button class="anext" onclick="renderInterviewQ()">Start interview →</button></div>
+    </div>`;
+}
+function closeInterview(){document.getElementById("amodal").classList.remove("open");document.body.style.overflow="";IS=null;}
+
+function renderInterviewQ(){
+  const {spec,idx,answers}=IS;const total=spec.questions.length;
+  document.getElementById("aFill").style.width=Math.round((idx/total)*100)+"%";
+  const q=spec.questions[idx];const prev=answers[q.id]||"";
+  document.getElementById("aBody").innerHTML=`
+    <div class="astep">
+      <div class="qhead">Question ${idx+1} of ${total} · answer out loud, then type it</div>
+      <h3 style="font-size:1.35rem">"${q.q}"</h3>
+      <textarea id="ivAnswer" placeholder="Type your answer the way you'd say it to the officer…"
+        style="width:100%;min-height:120px;margin-top:16px;background:rgba(255,255,255,.06);border:1px solid rgba(245,239,226,.18);border-radius:8px;padding:14px 16px;color:var(--cream);font-family:'Manrope',sans-serif;font-size:.95rem;line-height:1.5;resize:vertical">${prev}</textarea>
+      <div id="ivFeedback"></div>
+      <div class="anav">
+        <button class="aback" ${idx===0?'style="visibility:hidden"':''} onclick="ivPrev()">Back</button>
+        <button class="anext" id="ivScoreBtn" onclick="ivScore()">Score my answer →</button>
+      </div>
+    </div>`;
+  const ta=document.getElementById("ivAnswer");ta.focus();
+}
+function ivPrev(){if(IS.idx>0){IS.idx--;renderInterviewQ();}}
+
+async function ivScore(){
+  const q=IS.spec.questions[IS.idx];
+  const ans=document.getElementById("ivAnswer").value.trim();
+  if(ans.length<3){document.getElementById("ivFeedback").innerHTML=`<p style="color:var(--red);font-size:.85rem;margin-top:10px">Give it a real go first — even a rough answer.</p>`;return;}
+  IS.answers[q.id]=ans;
+  const btn=document.getElementById("ivScoreBtn");
+  btn.disabled=true;btn.textContent="Coach is listening…";
+
+  const country=D.countries[IS.code];
+  const catLbl=D.categories.find(c=>c.id===IS.cat).label;
+  const sys=`You are a visa interview coach for ${country.name} ${catLbl} visa applicants from Kenya. Adopt the perspective of: ${IS.spec.officerStyle}
+The question asked was: "${q.q}"
+What the officer is really testing: ${q.probe}
+Known red flags for this question: ${(q.redFlags||[]).join("; ")}.
+Score the applicant's answer from 0-100 on how well it satisfies the officer. Be honest and specific to THIS route — do not be generically encouraging. If the answer contains a red flag, the score must be low. If it's strong and specific, score high.
+Respond ONLY with valid JSON, no markdown, no preamble:
+{"score": <0-100>, "verdict": "<6 words max, e.g. 'Strong — specific and confident'>", "fix": "<one or two sentences: exactly how to make this answer stronger, in plain language, friendly-direct tone>", "flag": <true if a serious red flag is present, else false>}`;
+
+  try{
+    const res=await fetch("https://api.anthropic.com/v1/messages",{
+      method:"POST",headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({model:"claude-sonnet-4-6",max_tokens:1000,
+        messages:[{role:"user",content:sys+"\n\nApplicant's answer: \""+ans+"\""}]})
+    });
+    const data=await res.json();
+    let txt=(data.content||[]).filter(b=>b.type==="text").map(b=>b.text).join("").replace(/```json|```/g,"").trim();
+    const r=JSON.parse(txt);
+    IS.scores[q.id]=r.score;
+    const color=r.score>=75?"var(--ok)":r.score>=50?"var(--gold)":"var(--red)";
+    document.getElementById("ivFeedback").innerHTML=`
+      <div style="margin-top:16px;background:var(--card);border:1px solid ${r.flag?'rgba(224,122,95,.5)':'rgba(245,239,226,.14)'};border-radius:9px;padding:16px 18px">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px">
+          <strong style="font-family:'Instrument Serif',serif;font-size:1.8rem;color:${color}">${r.score}</strong>
+          <span style="font-weight:700;font-size:.9rem;color:${color}">${r.verdict}</span>
+        </div>
+        <p style="font-size:.9rem;line-height:1.55;color:var(--cream)">${r.flag?'⚠ ':''}${r.fix}</p>
+      </div>`;
+    const isLast=IS.idx===IS.spec.questions.length-1;
+    btn.disabled=false;btn.textContent=isLast?"See my results →":"Next question →";
+    btn.onclick=()=>{if(isLast)ivResults();else{IS.idx++;renderInterviewQ();}};
+  }catch(err){
+    document.getElementById("ivFeedback").innerHTML=`<p style="color:var(--red);font-size:.85rem;margin-top:12px">Coach couldn't connect just now. Check the answer and try again — or move on and revisit.</p>`;
+    btn.disabled=false;btn.textContent="Retry scoring →";
+  }
+}
+
+function ivResults(){
+  document.getElementById("aFill").style.width="100%";
+  const {spec,scores,code,cat}=IS;
+  const vals=spec.questions.map(q=>scores[q.id]).filter(v=>typeof v==="number");
+  const avg=vals.length?Math.round(vals.reduce((a,b)=>a+b,0)/vals.length):0;
+  const country=D.countries[code];
+  const band=avg>=75?{t:"Interview-ready",n:"You're answering like someone who'll be believed. Keep it this tight on the day."}:
+             avg>=50?{t:"Getting there",n:"The bones are good — a few answers need to be sharper and more specific before you're at the window."}:
+             {t:"Needs rehearsal",n:"Right now these answers would raise doubt. Work the fixes above, come back, and run it again until you're consistently strong."};
+  const rows=spec.questions.map(q=>{const s=scores[q.id];const c=s>=75?"var(--ok)":s>=50?"var(--gold)":"var(--red)";
+    return `<div class="agap" style="border-left-color:${c}"><span class="m" style="background:${c}"></span><div><strong>${s??'—'}</strong> · ${q.q}</div></div>`;}).join("");
+  const circ=534;
+  document.getElementById("aBody").innerHTML=`
+    <div class="ares">
+      <div class="qhead" style="color:var(--gold)">${country.flag} ${country.name} · mock interview result</div>
+      <div class="adial">
+        <svg width="180" height="180" viewBox="0 0 180 180">
+          <circle cx="90" cy="90" r="85" fill="none" stroke="rgba(245,239,226,.1)" stroke-width="9"/>
+          <circle id="ivArc" cx="90" cy="90" r="85" fill="none" stroke="url(#ivg)" stroke-width="9" stroke-linecap="round" stroke-dasharray="${circ}" stroke-dashoffset="${circ}" style="transition:stroke-dashoffset 1s cubic-bezier(.4,0,.2,1)"/>
+          <defs><linearGradient id="ivg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#d4af5a"/><stop offset="100%" stop-color="#e8c877"/></linearGradient></defs>
+        </svg>
+        <div class="num"><strong id="ivNum">0</strong><span>avg score</span></div>
+      </div>
+      <div class="aband">${band.t}</div>
+      <p class="aband-note">${band.n}</p>
+      <div class="agaps"><h4>Answer-by-answer</h4>${rows}</div>
+      <div class="anav"><button class="aback" onclick="IS.idx=0;renderInterviewQ()">← Redo answers</button>
+        <button class="anext" onclick="closeInterview()">Done</button></div>
+      <p style="font-size:.72rem;color:rgba(245,239,226,.4);margin-top:16px;line-height:1.5">AI coaching is practice, not a prediction. The consular officer makes the real decision. Honesty always beats a rehearsed script.</p>
+    </div>`;
+  const arc=document.getElementById("ivArc");requestAnimationFrame(()=>{arc.style.strokeDashoffset=circ-(circ*avg/100);});
+  let cur=0;const el=document.getElementById("ivNum");
+  (function tick(){cur+=Math.max(1,Math.ceil((avg-cur)/12));if(cur>=avg){el.textContent=avg;}else{el.textContent=cur;requestAnimationFrame(tick);}})();
+}
+
+/* init */
+renderGrid();
+</script>
+</body>
+</html>
